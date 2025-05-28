@@ -1,12 +1,13 @@
 package Character;
 
 public abstract class Character {
+    // 변수 선언
     protected String name;
     protected int hp;
     protected int exp;
     protected int grade;
 
-    public Character(String name, int hp, int exp) {
+    public Character(String name, int hp, int exp) {    // 캐릭터 정보 구조
         this.name = name;
         this.hp = hp;
         this.exp = exp;
@@ -15,18 +16,18 @@ public abstract class Character {
 
     public abstract void study(); // 캐릭터 특성에 따라 다르게 동작
 
-    public void rest() {
+    public void rest() {    // 휴식하기
         hp += 5;
         System.out.println("\n[System] " + name + "이(가) 휴식을 취했습니다. 체력 +5");
     }
 
-    public void printStatus() {
+    public void printStatus() {     // 현재 캐릭터 정보 출력
         System.out.println("\n이름: " + name + " | 체력: " + hp + " | 경험치: " + exp + " | 학년: " + grade);
     }
 
-    protected void gainExp(int amount) {
+    protected void gainExp(int amount) {    // 경험치 증가
         exp += amount;
-        while (exp >= 100) {
+        while (exp >= 100) {                // 경험치가 100이 되면 0으로 되돌리고, 학년 증가
             exp -= 100;
             grade++;
             if (grade >= 5) break;
@@ -34,11 +35,11 @@ public abstract class Character {
         }
     }
 
-    public boolean isDroppedOut() {
+    public boolean isDroppedOut() {     // 체력이 0인지?
         return hp <= 0;
     }
 
-    public int getGrade() {
+    public int getGrade() {     // 현재 학년 정보 불러오기
         return grade;
     }
 }
