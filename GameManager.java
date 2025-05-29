@@ -31,23 +31,23 @@ public class GameManager {
     private void gameLoop() {   // 게임 진행
         while (!player.isDroppedOut() && player.getGrade() < 5) {
             player.printStatus();
-            System.out.println("\n1. 공부하기");
-            System.out.println("2. 휴식하기");
-            System.out.println("3. 관리자 테스트(exp + 350)");
+            System.out.println("\n1. 과제하기");
+            System.out.println("2. 공부하기");
+            System.out.println("3. 알바하기");
             System.out.println("0. 종료");
             System.out.print("행동을 선택하세요: ");
 
             // 게임 내 선택지에 따른 결과 실행
             int action = scanner.nextInt();
             switch (action) {
-                case 1:     // 공부하기
+                case 1:     // 수업듣기
+                    player.lecture();
+                    break;
+                case 2:     // 과제하기
                     player.study();
                     break;
-                case 2:     // 휴식하기 (수업듣기, 알바하기로 추가 및 변경)
-                    player.rest();
-                    break;
-                case 3:     // test
-                    player.gainExp(350);
+                case 3:     // 알바하기
+                    player.work();
                     break;
                 case 0:     // 게임 종료
                     System.out.println("\n[System] 게임을 종료합니다.");

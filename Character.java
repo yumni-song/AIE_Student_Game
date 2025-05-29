@@ -14,12 +14,9 @@ public abstract class Character {
         this.grade = 1;
     }
 
-    public abstract void study(); // 캐릭터 특성에 따라 다르게 동작
-
-    public void rest() {    // 휴식하기
-        hp += 5;
-        System.out.println("\n[System] " + name + "이(가) 휴식을 취했습니다. 체력 +5");
-    }
+    public abstract void study();       // 과제 하기 / 캐릭터 특성에 따라 다르게 동작
+    public abstract void lecture();     // 수업 듣기
+    public abstract void work();        // 알바 하기
 
     public void printStatus() {     // 현재 캐릭터 정보 출력
         System.out.println("\n이름: " + name + " | 체력: " + hp + " | 경험치: " + exp + " | 학년: " + grade);
