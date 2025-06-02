@@ -5,6 +5,7 @@ import ui.GamePanel;
 import action.ActionManager;
 import character.DemoStatusManager;
 
+
 /*
     - 전체 흐름을 제어하는 클래스
     - main 함수 포함
@@ -16,12 +17,15 @@ public class GameManager {
     private DemoStatusManager statusManager;
     private CharacterSelected characterSelected;  // 캐릭터 선택 테스트용
 
+
+
     // 생성자: 상태 매니저, 행동 매니저, UI 초기화
     public GameManager() {
         statusManager = new DemoStatusManager();
         actionManager = new ActionManager(statusManager);
         characterSelected = new CharacterSelected(); // 캐릭터 선택 테스트용
         gamePanel = new GamePanel(this);
+
     }
 
     // action 패키지
@@ -44,8 +48,11 @@ public class GameManager {
     }
 
     // minigame 패키지
-    
-    // shop 패키지
+
+    // shop 패키지 (새로 넣음)
+    public DemoStatusManager getCharacter() {
+        return statusManager;  // 또는 SmartCharacter 등
+    }
 
 
     // 메인
@@ -53,4 +60,7 @@ public class GameManager {
     {
         new GameManager(); // 게임 시작
     }
+
+
 }
+

@@ -6,7 +6,7 @@ package shop;
     - CLOTH: 의류 아이템
 */
 
-public class enum ItemType {
+public enum ItemType {
     FOOD,
     CLOTH
 }
