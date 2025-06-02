@@ -1,28 +1,28 @@
 package Character;
 
+import action.ActionEffect;
+import action.ActionType;
+
 public class StrongCharacter extends Character {
+    // 시작 스테이터스 설정
     public StrongCharacter(String name) {
-        super(name, 20, 0);     // 시작 스테이터스 설정
+        this.energy = 100;
+        this.exp = 0;
+        this.grade = 1;
     }
 
+    // 수업, 과제, 알바 / 선택지별 동작
     @Override
-    public void study() {       // 체력 유리 캐릭터의 과제하기
-        hp -= 2;
-        gainExp(10);
-        System.out.println("\n[System] " + name + "이(가) 과제를 했습니다! 체력 -2, 경험치 +10");
-    }
-
-    @Override
-    public void lecture() {     // 수업듣기
-        hp -= 1;
-        gainExp(18);
-        System.out.println("\n[System] " + name + "이(가) 수업을 들었습니다! 체력 -1, 경험치 +18");
-    }
-
-    @Override
-    public void work() {        // 알바하기
-        hp -= 5;
-        gainExp(40);
-        System.out.println("\n[System] " + name + "이(가) 퇴근했습니다! 체력 -10, 경험치 +40");
+    public ActionEffect getEffect(ActionType type) {
+        switch (type) {
+            case CLASS:
+                return new ActionEffect(20, -20);
+            case HOMEWORK:
+                return new ActionEffect(10, -10);
+            case PARTTIME:
+                return new ActionEffect(30, -10);
+            default:
+                return new ActionEffect(0, 0);
+        }
     }
 }

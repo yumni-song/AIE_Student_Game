@@ -1,42 +1,45 @@
 package Character;
 
+import action.ActionType;
+import action.ActionEffect;
+
 public abstract class Character {
     // 변수 선언
-    protected String name;
-    protected int hp;
+    protected int energy;
     protected int exp;
     protected int grade;
 
-    public Character(String name, int hp, int exp) {    // 캐릭터 정보 구조
-        this.name = name;
-        this.hp = hp;
-        this.exp = exp;
-        this.grade = 1;
+    // 현재 캐릭터 정보 출력
+    public void printStatus() {
+        System.out.println("체력: " + energy + " | 경험치: " + exp + " | 학년: " + grade);
     }
 
-    public abstract void study();       // 과제 하기 / 캐릭터 특성에 따라 다르게 동작
-    public abstract void lecture();     // 수업 듣기
-    public abstract void work();        // 알바 하기
-
-    public void printStatus() {     // 현재 캐릭터 정보 출력
-        System.out.println("\n이름: " + name + " | 체력: " + hp + " | 경험치: " + exp + " | 학년: " + grade);
-    }
-
-    protected void gainExp(int amount) {    // 경험치 증가
+    // 경험치 증가
+    protected void gainExp(int amount) {
         exp += amount;
-        while (exp >= 100) {                // 경험치가 100이 되면 0으로 되돌리고, 학년 증가
+        if (exp >= 100) {
             exp -= 100;
             grade++;
-            if (grade >= 5) break;
-            System.out.println("\n[System] 학년이 올랐습니다! 현재 학년: " + grade);
         }
     }
 
-    public boolean isDroppedOut() {     // 체력이 0인지?
-        return hp <= 0;
+    // 체력 변화
+    public void changeEnergy(int amount) {
+        energy += amount;
+        if (energy >= 100) energy = 100;
+        if (energy <= 0) energy = 0;
     }
 
-    public int getGrade() {     // 현재 학년 정보 불러오기
+    // 체력이 0인지?
+    public boolean isDroppedOut() {
+        return energy <= 0;
+    }
+
+    // 현재 학년 정보 불러오기
+    public int getGrade() {
         return grade;
     }
+
+    // 캐릭터마다 행동별 효과 다르게 계산
+    public abstract ActionEffect getEffect(ActionType type);
 }
