@@ -15,7 +15,7 @@ public abstract class Character {
     }
 
     // 경험치 증가
-    protected void gainExp(int amount) {
+    public void gainExp(int amount) {
         exp += amount;
         if (exp >= 100) {
             exp -= 100;
