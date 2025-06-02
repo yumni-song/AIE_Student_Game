@@ -16,13 +16,24 @@ public class MainPanel extends JPanel {
     protected JPanel mainTab, storeTab, sidePanel, characterPanel, titlePanel;
     private JTabbedPane tabPane;
     private JLabel title;
+    private ClockPanel clockPanel;
 
     public MainPanel(GamePanel gamePanel) {
         gp= gamePanel;
 
         setLayout(new GridBagLayout());
         GridBagConstraints g = new GridBagConstraints();
-        g.insets = new Insets(30,25,30,25); // 여백
+        g.insets = new Insets(30,10,30,10); // 여백
+
+        // 시계 (ClockPanel 구현 예정)
+        clockPanel = new ClockPanel();
+        clockPanel.setLayout(new GridBagLayout());
+        clockPanel.setMinimumSize(new Dimension(0,0)); // 창 크기 반응해서 축소
+        clockPanel.setBorder(BorderFactory.createLineBorder(Color.BLUE, 2)); // layout 테스트용
+        g.gridx = 0; g.gridy = 0; g.gridwidth = 1; g.gridheight = 5;
+        g.weightx = 0.1; g.weighty = 1.0; g.fill = GridBagConstraints.BOTH;
+        add(clockPanel, g);
+
 
         /* 탭 패널 -> 메인 탭, 상점 탭 */
         tabPane = new JTabbedPane();
@@ -41,8 +52,8 @@ public class MainPanel extends JPanel {
         tabPane.addTab("메인",mainTab);
         tabPane.addTab("상점",storeTab);
 
-        g.gridx = 0; g.gridy = 0; g.gridwidth = 4; g.gridheight = 5;
-        g.weightx = 1.0; g.weighty = 1.0; g.fill = GridBagConstraints.BOTH;
+        g.gridx = 1; g.gridy = 0; g.gridwidth = 3; g.gridheight = 5;
+        g.weightx = 0.8; g.weighty = 1.0; g.fill = GridBagConstraints.BOTH;
         add(tabPane, g);
 
 
@@ -77,7 +88,7 @@ public class MainPanel extends JPanel {
 
 
         g.gridx = 4; g.gridy = 0; g.gridwidth = 1; g.gridheight = 4;
-        g.weightx = 0.0; g.weighty = 1.0; g.fill = GridBagConstraints.BOTH;
+        g.weightx = 0.1; g.weighty = 1.0; g.fill = GridBagConstraints.BOTH;
         add(sidePanel, g);
         
     }

@@ -35,7 +35,7 @@ public class CharacterPanel extends JPanel {
         c1Button.setPreferredSize(new Dimension(400,500));
         c1Button.setMaximumSize(new Dimension(400,500));
         c1Button.addActionListener(e -> {
-            gp.getGameManager().getCharacter("Strong Character");
+            gp.getGameManager().createCharacter(1,"Strong Character");
         });
 
         // 2. Smart 캐릭터 버튼 (경험치 유리)
@@ -44,7 +44,7 @@ public class CharacterPanel extends JPanel {
         c2Button.setPreferredSize(new Dimension(400,500));
         c2Button.setMaximumSize(new Dimension(400,500));
         c2Button.addActionListener(e -> {
-            gp.getGameManager().getCharacter("Smart Character");
+            gp.getGameManager().createCharacter(0,"Smart Character");
         });
 
 

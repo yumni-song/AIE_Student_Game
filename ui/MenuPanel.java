@@ -17,6 +17,7 @@ public class MenuPanel extends JPanel {
     private MainPanel mp;
     private JButton classButton, homeworkButton, workButton;
     Border color, space;
+    private JFrame miniGameFrame;
 
     public MenuPanel(MainPanel mainPanel) {
         mp = mainPanel;
@@ -43,6 +44,10 @@ public class MenuPanel extends JPanel {
         // 알바하기 버튼
         workButton = new JButton("알바하기");
         workButton.setFont(new Font("SanSerif", Font.BOLD, 20));
+
+        workButton.addActionListener(e -> { // 알바: 게임 화면 팝업
+            OpenMiniGameFrame();
+        });
 
 
         add(classButton);
@@ -77,6 +82,15 @@ public class MenuPanel extends JPanel {
         timer.setRepeats(false);
         timer.start();
     }
+    
+    // 알바하기 버튼 클릭하면 나타나는 게임 화면
+    private void OpenMiniGameFrame() {
+        miniGameFrame = new JFrame("알바하기");
+        miniGameFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        miniGameFrame.getContentPane().setBackground(Color.BLACK);
+        miniGameFrame.setSize(mp.mainTab.getSize());
+        miniGameFrame.setLocationRelativeTo(mp.mainTab); // 화면 가운데 배치
+        miniGameFrame.setVisible(true);
+    }
 }
-
 
