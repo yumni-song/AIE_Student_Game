@@ -3,7 +3,9 @@ package main;
 import action.ActionType;
 import ui.GamePanel;
 import action.ActionManager;
-import character.DemoStatusManager;
+import character.CharacterManager;
+
+import javax.swing.*;
 
 /*
     - 전체 흐름을 제어하는 클래스
@@ -13,14 +15,12 @@ import character.DemoStatusManager;
 public class GameManager {
     private GamePanel gamePanel;
     private ActionManager actionManager;
-    private DemoStatusManager statusManager;
-    private CharacterSelected characterSelected;  // 캐릭터 선택 테스트용
+    private CharacterManager characterManager;
 
     // 생성자: 상태 매니저, 행동 매니저, UI 초기화
     public GameManager() {
-        statusManager = new DemoStatusManager();
-        actionManager = new ActionManager(statusManager);
-        characterSelected = new CharacterSelected(); // 캐릭터 선택 테스트용
+        characterManager = new CharacterManager();
+        actionManager = new ActionManager(characterManager);
         gamePanel = new GamePanel(this);
     }
 
@@ -31,16 +31,9 @@ public class GameManager {
     }
 
     // character 패키지
-    /* 캐릭터 선택 이벤트 처리 테스트
-    -> Character 패키지와 연결하는 부분을 콘솔에 출력해서 확인했습니다. */
-    public class CharacterSelected {
-        public void buttonClicked(String c) {
-            System.out.println("Character : " + c);
-        }
-    }
-    public void getCharacter(String c) {
-        CharacterSelected cs = new CharacterSelected();
-        cs.buttonClicked(c);
+    // -> createCharacter와 캐릭터 선택 버튼 연결
+    public void createCharacter(int choice, String name){
+       characterManager.createCharacter(choice, name);
     }
 
     // minigame 패키지
@@ -51,6 +44,9 @@ public class GameManager {
     // 메인
     public static void main(String[] args)
     {
-        new GameManager(); // 게임 시작
+        // GUI를 안전하게 실행하기 위한 쓰레드
+        SwingUtilities.invokeLater(()-> {
+            new GameManager(); // 게임 시작
+        });
     }
 }
