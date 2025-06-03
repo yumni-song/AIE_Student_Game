@@ -1,9 +1,9 @@
-package demo2.main;
+package main;
 
-import demo2.action.ActionType;
-import demo2.ui.GamePanel;
-import demo2.action.ActionManager;
-import demo2.character.CharacterManager;
+import action.ActionType;
+import ui.GamePanel;
+import action.ActionManager;
+import character.CharacterManager;
 
 import javax.swing.*;
 
@@ -17,12 +17,6 @@ public class GameManager {
     private ActionManager actionManager;
     private CharacterManager characterManager;
 
-    // 생성자: 상태 매니저, 행동 매니저, UI 초기화
-    public GameManager() {
-        characterManager = new CharacterManager();
-        actionManager = new ActionManager(characterManager);
-        gamePanel = new GamePanel(this);
-    }
 
     // action 패키지
     // -> 알바하기, 공부하기 버튼 연결 완료
@@ -33,11 +27,26 @@ public class GameManager {
     // character 패키지
     // -> createCharacter와 캐릭터 선택 버튼 연결
     public void createCharacter(int choice, String name){
-       characterManager.createCharacter(choice, name);
+        characterManager.createCharacter(choice, name);
     }
 
     // minigame 패키지
-    
+    public GameManager() {
+        characterManager = new CharacterManager();
+        actionManager = new ActionManager(characterManager);
+        gamePanel = new GamePanel(this);
+
+        //카드 게임 실행
+        new MiniGame.CardMatchingGame(() -> {
+            characterManager.addExp(100);
+            System.out.println("카드 게임 완료 → 경험치 +100");
+        });
+    }
+    public CharacterManager getCharacterManager() {
+        return characterManager;
+    }
+
+
     // shop 패키지
 
 
