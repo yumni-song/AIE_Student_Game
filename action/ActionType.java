@@ -1,4 +1,4 @@
-package demo2.action;
+package action;
 
 /**
  * 행동의 종류를 정의하는 열거형(enum)

@@ -1,6 +1,6 @@
-package demo2.action;
+package action;
 
-import demo2.character.CharacterManager;
+import character.CharacterManager;
 
 import javax.swing.*;
 import java.util.HashMap;
@@ -23,7 +23,7 @@ public class ActionManager {
         // 행동별 효과 설정 (CLASS: 경험치↑↑, HOMEWORK: 경험치↑)
         effects.put(ActionType.CLASS, new ActionEffect(40, -40));     // 경험치 +40, 에너지 -40
         effects.put(ActionType.HOMEWORK, new ActionEffect(10, -10));  // 경험치 +10, 에너지 -10
-        effects.put(ActionType.PARTTIME, new ActionEffect(30, -20));  // PARTTIME 추가 (예시)
+        effects.put(ActionType.PARTTIME, new ActionEffect(100, -20));  // PARTTIME 추가 (예시)
     }
 
     /**
@@ -45,5 +45,22 @@ public class ActionManager {
     public void performActionImmediately(ActionType type) {
         characterManager.applyEffect(type);
     }
-}
 
+    /**
+     * PARTTIME 끝나고 상태 반영
+
+    public void performAction(ActionType action) {
+        switch (action) {
+            // 기존 액션들...
+
+            case PARTTIME:
+
+                boolean success = CardMatchGame.playGame();
+                if (success) {
+                    Character.addExp(100); // 경험치 부여
+                }
+                break;
+        }*/
+
+
+}

@@ -1,4 +1,4 @@
-package demo2.action;
+package action;
 
 /**
  * 행동의 효과를 나타내는 클래스
@@ -24,4 +24,3 @@ public class ActionEffect {
         return energyChange;
     }
 }
-
