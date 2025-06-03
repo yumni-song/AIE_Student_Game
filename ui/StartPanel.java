@@ -1,4 +1,4 @@
-package demo2.ui;
+package ui;
 
 import java.awt.*;
 import javax.swing.*;
@@ -58,7 +58,7 @@ public class StartPanel extends JPanel {
     private void openGuideFrame() {
         guideFrame = new JFrame("게임 방법");
         guideFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        
+
         labelPanel = new JPanel(); // 설명 label을 담을 패널
         labelPanel.setBorder(BorderFactory.createEmptyBorder(30,30,30,30)); // 여백 설정
         labelPanel.setLayout(new GridLayout(6,1));

@@ -1,6 +1,6 @@
-package demo2.ui;
+package ui;
 
-import demo2.main.GameManager;
+import main.GameManager;
 
 import java.awt.*;
 import javax.swing.*;
@@ -37,7 +37,7 @@ public class GamePanel extends JPanel{
 
         CardLayout cl = new CardLayout();
         panel = new JPanel(cl); // 전체 패널
-        
+
         // 1. 시작 화면
         startPanel = new StartPanel();
         startButton = startPanel.getSButton();
@@ -74,4 +74,3 @@ public class GamePanel extends JPanel{
         return gameManager;
     }
 }
-

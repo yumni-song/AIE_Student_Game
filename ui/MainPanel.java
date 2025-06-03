@@ -1,6 +1,6 @@
-package demo2.ui;
+package ui;
 
-import demo2.main.GameManager;
+import main.GameManager;
 
 import java.awt.*;
 import javax.swing.*;
@@ -90,7 +90,7 @@ public class MainPanel extends JPanel {
         g.gridx = 4; g.gridy = 0; g.gridwidth = 1; g.gridheight = 4;
         g.weightx = 0.1; g.weighty = 1.0; g.fill = GridBagConstraints.BOTH;
         add(sidePanel, g);
-        
+
     }
 
     // GamePanel의 gameManager를 전달
@@ -98,4 +98,3 @@ public class MainPanel extends JPanel {
         return gp.getGameManager();
     }
 }
-

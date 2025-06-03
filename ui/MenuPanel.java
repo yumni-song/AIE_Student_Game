@@ -1,6 +1,6 @@
-package demo2.ui;
+package ui;
 
-import demo2.action.ActionType;
+import action.ActionType;
 
 import java.awt.*;
 import javax.swing.*;
@@ -82,16 +82,21 @@ public class MenuPanel extends JPanel {
         timer.setRepeats(false);
         timer.start();
     }
-    
+
     // 알바하기 버튼 클릭하면 나타나는 게임 화면
     private void OpenMiniGameFrame() {
         miniGameFrame = new JFrame("알바하기");
         miniGameFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         miniGameFrame.getContentPane().setBackground(Color.BLACK);
         miniGameFrame.setSize(mp.mainTab.getSize());
-        miniGameFrame.setLocationRelativeTo(mp.mainTab); // 화면 가운데 배치
+        miniGameFrame.setLocationRelativeTo(mp.mainTab);
+
+        // 카드 매칭 게임 패널 추가
+        MiniGame.CardMatchingGame gamePanel = new MiniGame.CardMatchingGame(() -> {
+            mp.getGameManager().getCharacterManager().addExp(100);
+        });
+        miniGameFrame.add(gamePanel); // JPanel을 JFrame에 추가
+
         miniGameFrame.setVisible(true);
     }
 }
-
-
