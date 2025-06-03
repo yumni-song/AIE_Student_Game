@@ -1,7 +1,7 @@
-package demo2.character;
+package character;
 
-import demo2.action.ActionEffect;
-import demo2.action.ActionType;
+import action.ActionEffect;
+import action.ActionType;
 
 public class StrongCharacter extends Character {
     // 시작 스테이터스 설정

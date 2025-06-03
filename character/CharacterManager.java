@@ -1,7 +1,8 @@
-package demo2.character;
+package character;
 
-import demo2.action.ActionType;
-import demo2.action.ActionEffect;
+
+import action.ActionType;
+import action.ActionEffect;
 
 // 이전: 캐릭터 파트 GameManager //
 public class CharacterManager {
@@ -51,5 +52,15 @@ public class CharacterManager {
             player.printStatus();
         }
     }
-}
 
+    // 경험치 추가 메서드 (카드 게임에서 사용)
+    public void addExp(int exp) {
+        if (player != null) {
+            player.gainExp(exp);
+            printStatus(); // 상태 출력 (선택사항)
+        } else {
+            System.out.println("[System] 캐릭터가 아직 생성되지 않았습니다.");
+        }
+    }
+
+}

@@ -1,7 +1,7 @@
-package demo2.character;
+package character;
 
-import demo2.action.ActionType;
-import demo2.action.ActionEffect;
+import action.ActionType;
+import action.ActionEffect;
 
 public class SmartCharacter extends Character {
     // 시작 스테이터스 설정
@@ -26,5 +26,3 @@ public class SmartCharacter extends Character {
         }
     }
 }
-
-

@@ -1,8 +1,8 @@
-package demo2.character;
+package character;
 
 
-import demo2.action.ActionType;
-import demo2.action.ActionEffect;
+import action.ActionType;
+import action.ActionEffect;
 
 public abstract class Character {
     // 변수 선언
