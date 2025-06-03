@@ -73,4 +73,14 @@ public class GamePanel extends JPanel{
     public GameManager getGameManager() {
         return gameManager;
     }
+
+    // MainPanel을 GameManager에서 GamePanel에 추가
+    public void setMainPanel(MainPanel mp) {
+        panel.add(mp, "main");
+    }
+
+    // MainPanel 전달(종료 팝업 메시지)
+    public MainPanel getMainPanel() {
+        return mainPanel;
+    }
 }

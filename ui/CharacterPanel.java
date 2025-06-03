@@ -6,14 +6,16 @@ import javax.swing.*;
 /*
     - 캐릭터 선택 화면을 구성하는 클래스
       -> 안내 텍스트, 캐릭터 선택 버튼(Strong / Smart)
-    - 사용자가 버튼을 클릭하면 캐릭터 패키지의 메서드를 호출하여 정보 전달
+    - 사용자가 버튼을 클릭하면 character 패키지의 메서드를 호출하여 정보 전달
 */
 public class CharacterPanel extends JPanel {
     private GamePanel gp;
 
-    private JButton c1Button, c2Button;
-    private JLabel text;
-    private JPanel textPanel, buttonPanel;
+    private JButton c1Button, c2Button, okButton;
+    private JLabel text, nameLabel;
+    private JPanel textPanel, buttonPanel, namePanel;
+    private JDialog nameDialog;
+    private JTextField nameTF;
 
     public CharacterPanel(GamePanel gamePanel) {
         gp = gamePanel;

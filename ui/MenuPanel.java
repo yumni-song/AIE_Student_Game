@@ -11,7 +11,7 @@ import javax.swing.BorderFactory; // border 설정 합치기
     - 메인 화면(게임 화면)의 버튼 메뉴를 구성하는 클래스
       -> 수업듣기, 과제하기, 알바하기 버튼
     - 사용자가 버튼 클릭하면 이벤트 처리
-      -> 팝업, action 패키지의 메서드 호출
+      -> 팝업, action, minigame 패키지의 메서드 호출
 */
 public class MenuPanel extends JPanel {
     private MainPanel mp;
@@ -83,7 +83,7 @@ public class MenuPanel extends JPanel {
         timer.start();
     }
     
-    // 알바하기 버튼 클릭하면 나타나는 게임 화면
+    // 알바하기 버튼 클릭하면 나타나는 게임 화면 (minigame 패키지와 연결 예정)
     private void OpenMiniGameFrame() {
         miniGameFrame = new JFrame("알바하기");
         miniGameFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

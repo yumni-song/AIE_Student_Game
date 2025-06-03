@@ -5,7 +5,7 @@ import javax.swing.*;
 
 /*
     - 시작 화면을 구성하는 클래스
-      -> 게임 이름, 시작하기 버튼
+      -> 게임 이름, 시작하기 버튼, 게임 설명 버튼
 */
 public class StartPanel extends JPanel {
     private JLabel startLabel, label1, label2, label3, label4, label5, label6;
