@@ -4,6 +4,7 @@ import action.ActionType;
 import ui.GamePanel;
 import action.ActionManager;
 import character.CharacterManager;
+import ui.MainPanel;
 
 import javax.swing.*;
 
@@ -14,14 +15,18 @@ import javax.swing.*;
 
 public class GameManager {
     private GamePanel gamePanel;
+    private MainPanel mainPanel; // 종료 메시지 위해 추가
     private ActionManager actionManager;
     private CharacterManager characterManager;
 
     // 생성자: 상태 매니저, 행동 매니저, UI 초기화
     public GameManager() {
-        characterManager = new CharacterManager();
+        characterManager = new CharacterManager(this);
         actionManager = new ActionManager(characterManager);
         gamePanel = new GamePanel(this);
+        mainPanel = new MainPanel(gamePanel); // 종료 메시지 위해 추가
+        gamePanel.setMainPanel(mainPanel);
+
     }
 
     // action 패키지
@@ -40,6 +45,11 @@ public class GameManager {
     
     // shop 패키지
 
+
+    // 종료 팝업 메시지를 위한 추가
+    public GamePanel getGamePanel() {
+        return gamePanel;
+    }
 
     // 메인
     public static void main(String[] args)
